@@ -1,0 +1,12 @@
+// Aggregate Attacks by Location (used to power the Workbook map)
+// Aggregates all failed login attempts by IP address and joins them with the
+// Watchlist to generate the data used in the map visualization.
+
+let GeoIPDB_FULL = _GetWatchlist("geoip");
+let WindowsEvents = SecurityEvent;
+WindowsEvents | where EventID == 4625
+| order by TimeGenerated desc
+| evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network)
+| summarize FailureCount = count() by IpAddress, latitude, longitude, cityname, countryname
+| project FailureCount, AttackerIp = IpAddress, latitude, longitude, city = cityname, country = countryname,
+friendly_location = strcat(cityname, " (", countryname, ")");

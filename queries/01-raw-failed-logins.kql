@@ -1,0 +1,7 @@
+// View Raw Failed Login Attempts
+// Filters the SecurityEvent table for failed logins (Event ID 4625) to observe raw attack traffic.
+
+SecurityEvent
+| where EventID == 4625
+| project TimeGenerated, Account, Computer, EventID, Activity, IpAddress
+| where TimeGenerated > ago(1m)
