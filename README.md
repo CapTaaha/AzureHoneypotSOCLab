@@ -273,7 +273,7 @@ Azure-Honeypot-SOC-Lab/
 
 **Taaha Siddiqui Mohammed**
 - LinkedIn: [linkedin.com/in/taahams](https://www.linkedin.com/in/taahams/)
-- GitHub: [github.com/taahams](https://github.com/taahams)
+- GitHub: [github.com/CapTaaha](https://github.com/CapTaaha)
 
 ---
 
